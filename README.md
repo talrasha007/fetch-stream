@@ -93,7 +93,6 @@ Results will looks like:
 [DONE]
 ```
 
-#### chunks
 ### sse
 If the data source is [Server Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
 ```js
@@ -126,6 +125,7 @@ async function foo() {
 }
 ```
 
+#### chunks
 ```js
 async function foo() {
   const parser = await fetchStreamParser('https://your/stream/url', opts);
