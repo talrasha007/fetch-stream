@@ -1,7 +1,7 @@
 {
   "name": "fetch-stream-parser",
   "version": "0.0.1",
-  "description": "parse fetch stream without any deps.",
+  "description": "A super lightweight lib for parsing ReadableStream which is the type of Response.body of fetch api.",
   "main": "index.mjs",
   "types": "index.d.mts",
   "directories": {
@@ -13,7 +13,8 @@
   },
   "keywords": [
     "fetch",
-    "stream"
+    "stream",
+    "parser"
   ],
   "author": "Tal (talrasha007@gmail.com)",
   "license": "Apache-2.0",
