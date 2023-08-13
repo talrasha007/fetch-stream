@@ -1,4 +1,4 @@
-import { fetchStreamParser } from '../index.mjs';
+import fetchStreamParser from '../index.mjs';
 
 const openAiKey = process.env.OPENAI_KEY;
 

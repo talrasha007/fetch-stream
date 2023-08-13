@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "parse fetch stream without any deps.",
   "main": "index.mjs",
+  "types": "index.d.mts",
   "directories": {
     "example": "example"
   },
