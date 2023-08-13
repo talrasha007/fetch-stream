@@ -20,6 +20,9 @@ const openAiKey = process.env.OPENAI_KEY;
   });
 
   for await (const { data } of fsp.sse(true)) {
-    console.log(data.choices?.[0] || data);
+    // console.log(data.choices?.[0] || data);
+    const delta = data.choices?.[0].delta?.content;
+    if (delta) process.stdout.write(delta);
   }
+  console.log(''); // new line
 })().catch(console.error);
