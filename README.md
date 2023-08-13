@@ -53,7 +53,7 @@ const openAiKey = process.env.OPENAI_KEY;
 })().catch(console.error);
 ```
 Results will looks like:
-```json
+```
 {
   index: 0,
   delta: { role: 'assistant', content: '' },
@@ -95,7 +95,7 @@ Results will looks like:
 
 #### chunks
 ### sse
-If the data source is (Server Sent Events)[https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events]
+If the data source is [Server Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
 ```js
 async function foo() {
   const parser = await fetchStreamParser('https://your/stream/url', opts);
