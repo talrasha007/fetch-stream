@@ -93,6 +93,14 @@ Results will looks like:
 [DONE]
 ```
 
+Or write data to stdout, you will feel it is typing.
+```js
+  for await (const { data } of fsp.sse(true)) {
+    const delta = data.choices?.[0].delta?.content;
+    if (delta) process.stdout.write(delta);
+  }
+```
+
 ### sse
 If the data source is [Server Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
 ```js
