@@ -58,7 +58,10 @@ class Parser {
       }
 
       let [, key, value] = match;
-      if (key === 'data' && isJsonData) value = JSON.parse(value);
+      if (key === 'data' && isJsonData) {
+        try { value = JSON.parse(value); }
+        catch (e) { }
+      }
 
       if (!current[key]) {
         current[key] = value;
