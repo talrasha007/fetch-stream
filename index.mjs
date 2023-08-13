@@ -70,12 +70,12 @@ class Parser {
   }
 }
 
-async function fetchIterator(url, opts) {
+async function fetchStreamParser(url, opts) {
   const resp = await fetch(url, opts);
   if (!resp.ok) throw new Error(`Fetch failed: ${resp.status} ${resp.statusText}`);
 
   return new Parser(resp.body);
 }
 
-export default fetchIterator;
-export { Parser, fetchIterator };
+export default fetchStreamParser;
+export { Parser, fetchStreamParser };

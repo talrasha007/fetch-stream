@@ -1,9 +1,9 @@
-import { fetchIterator } from '../index.mjs';
+import { fetchStreamParser } from '../index.mjs';
 
 const openAiKey = process.env.OPENAI_KEY;
 
 (async function () {
-  const fi = await fetchIterator('https://api.openai.com/v1/chat/completions', {
+  const fsp = await fetchStreamParser('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ const openAiKey = process.env.OPENAI_KEY;
     })
   });
 
-  for await (const { data } of fi.sse()) {
+  for await (const { data } of fsp.sse()) {
     console.log(data);
   }
 })().catch(console.error);

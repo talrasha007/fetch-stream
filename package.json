@@ -1,0 +1,23 @@
+{
+  "name": "fetch-stream-parser",
+  "version": "0.0.1",
+  "description": "parse fetch stream without any deps.",
+  "main": "index.mjs",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talrasha007/fetch-stream.git"
+  },
+  "keywords": [
+    "fetch",
+    "stream"
+  ],
+  "author": "Tal (talrasha007@gmail.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/talrasha007/fetch-stream/issues"
+  },
+  "homepage": "https://github.com/talrasha007/fetch-stream#readme"
+}
