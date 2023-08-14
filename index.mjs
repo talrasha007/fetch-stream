@@ -80,5 +80,18 @@ async function fetchStreamParser(url, opts) {
   return new Parser(resp.body);
 }
 
+function wrapWebsocket(ws, decoder = (d) => d) {
+  const { readable, writable } = new TransformStream();
+
+  ws.addEventListener('close', () => writable.close());
+  ws.addEventListener('error', (e) => writable.abort(e));
+  ws.addEventListener('message', (e) => {
+    const data = decoder(e.data);
+    if (data) writable.write(data + '\n');
+  });
+
+  return new Parser(readable);
+}
+
 export default fetchStreamParser;
-export { Parser, fetchStreamParser };
+export { Parser, fetchStreamParser, wrapWebsocket };

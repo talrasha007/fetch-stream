@@ -8,6 +8,7 @@ export interface Parser {
   sse(isJsonData: Boolean): AsyncIterableIterator<Object>;
 }
 
-export function fetchStreamParser(url: RequestInfo | URL | String, opts: RequestInit): Promise<Parser>;
+export function fetchStreamParser(url: RequestInfo | URL | String, opts?: RequestInit | undefined): Promise<Parser>;
+export function wrapWebsocket(ws: WebSocket, decoder?: (eventData: String | Blob) => String): Parser;
 
 export default fetchStreamParser;
