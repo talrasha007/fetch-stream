@@ -1,4 +1,4 @@
-import { fetchStreamParser } from '../index.mjs';
+import { fetchStreamParser } from 'fetch-stream-parser';
 
 (async function test() {
   let fsp;

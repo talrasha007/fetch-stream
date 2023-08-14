@@ -1,0 +1,6 @@
+{
+  "name": "fetch-stream-parser-example",
+  "dependencies": {
+    "fetch-stream-parser": "file:.."
+  }
+}
