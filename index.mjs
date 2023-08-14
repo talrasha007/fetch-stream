@@ -82,12 +82,13 @@ async function fetchStreamParser(url, opts) {
 
 function wrapWebsocket(ws, decoder = (d) => d) {
   const { readable, writable } = new TransformStream();
+  const writer = writable.getWriter();
 
-  ws.addEventListener('close', () => writable.close());
-  ws.addEventListener('error', (e) => writable.abort(e));
+  ws.addEventListener('close', () => writer.close());
+  ws.addEventListener('error', (e) => writer.abort(e));
   ws.addEventListener('message', (e) => {
     const data = decoder(e.data);
-    if (data) writable.write(data + '\n');
+    if (data) writer.write(data + '\n');
   });
 
   return new Parser(readable);
