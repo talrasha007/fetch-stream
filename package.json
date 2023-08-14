@@ -1,6 +1,6 @@
 {
   "name": "fetch-stream-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A super lightweight lib for parsing ReadableStream which is the type of Response.body of fetch api.",
   "main": "index.mjs",
   "types": "index.d.mts",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/talrasha007/fetch-stream.git"
+    "url": "git+https://github.com/talrasha007/fetch-stream-parser"
   },
   "keywords": [
     "fetch",
@@ -19,7 +19,7 @@
   "author": "Tal (talrasha007@gmail.com)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/talrasha007/fetch-stream/issues"
+    "url": "https://github.com/talrasha007/fetch-stream-parser/issues"
   },
-  "homepage": "https://github.com/talrasha007/fetch-stream#readme"
+  "homepage": "https://github.com/talrasha007/fetch-stream-parser#readme"
 }
