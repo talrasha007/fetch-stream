@@ -101,6 +101,23 @@ Or write data to stdout, you will feel it is typing.
   }
 ```
 
+## Read data from websocket.
+```js
+import { getWsEvents } from 'fetch-stream-parser';
+
+(async function () {
+  const ws = new WebSocket('wss://gateway.discord.gg/?v=9&encoding=json');
+  setTimeout(() => ws.send('{"op":1,"d":6}'), 1000);
+  setTimeout(() => ws.close(), 5000);
+
+  for await (const event of getWsEvents(ws)) {
+    console.log(event);
+  }
+
+  console.log('socket closed.');
+})(console.error);
+```
+
 ### sse
 If the data source is [Server Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
 ```js
