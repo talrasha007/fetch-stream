@@ -80,19 +80,40 @@ async function fetchStreamParser(url, opts) {
   return new Parser(resp.body);
 }
 
-function wrapWebsocket(ws, decoder = (d) => d) {
-  const { readable, writable } = new TransformStream();
-  const writer = writable.getWriter();
+async function *getWsEvents(ws) {
+  let resolve, reject, done = false, error;
+  const buffer = [];
 
-  ws.addEventListener('close', () => writer.close());
-  ws.addEventListener('error', (e) => writer.abort(e));
-  ws.addEventListener('message', (e) => {
-    const data = decoder(e.data);
-    if (data) writer.write(data + '\n');
-  });
+  ws.addEventListener('message', ({ data }) => resolve(data));
+  ws.addEventListener('close', () => resolve());
+  ws.addEventListener('error', (e) => reject(e));
 
-  return new Parser(readable);
+  function pushData(data) {
+    if (data !== undefined) buffer.push(data);
+    else done = true;
+  }
+
+  function setError(err) {
+    error = err;
+  }
+
+  while (true) {
+    const data = await new Promise((res, rej) => {
+      if (buffer.length > 0) return res(buffer.shift());
+      if (buffer.length === 0 && done) return res();
+      if (error) return rej(error);
+
+      resolve = res;
+      reject = rej;
+    })
+
+    resolve = pushData;
+    reject = setError;
+    
+    if (data === undefined) break;
+    else yield data;
+  }
 }
 
 export default fetchStreamParser;
-export { Parser, fetchStreamParser, wrapWebsocket };
+export { Parser, fetchStreamParser, getWsEvents };

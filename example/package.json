@@ -1,6 +1,7 @@
 {
   "name": "fetch-stream-parser-example",
   "dependencies": {
-    "fetch-stream-parser": "file:.."
+    "fetch-stream-parser": "file:..",
+    "ws": "^8.13.0"
   }
 }

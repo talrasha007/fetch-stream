@@ -9,6 +9,6 @@ export interface Parser {
 }
 
 export function fetchStreamParser(url: RequestInfo | URL | String, opts?: RequestInit | undefined): Promise<Parser>;
-export function wrapWebsocket(ws: WebSocket, decoder?: (eventData: String | Blob) => String): Parser;
+export function getWsEvents(ws: WebSocket): AsyncIterableIterator<String | Blob>;
 
 export default fetchStreamParser;
