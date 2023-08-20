@@ -1,6 +1,6 @@
 {
   "name": "fetch-stream-parser",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A super lightweight lib for parsing ReadableStream which is the type of Response.body of fetch api.",
   "main": "index.mjs",
   "types": "index.d.mts",

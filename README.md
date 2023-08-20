@@ -1,4 +1,9 @@
 # fetch-stream-parser
+
+## This lib is moved to new position.
+Fetch api part is moved to [@async-util/fetch](https://www.npmjs.com/package/@async-util/fetch)
+Websocket api part is moved to [@async-util/websocket](https://www.npmjs.com/package/@async-util/websocket)
+
 A super lightweight lib for parsing ReadableStream which is the type of Response.body of *fetch api*, implement by async generator fuction, so we can write code in AsyncIterableIterator style.
 
 ## Parser & fetchStreamParser
