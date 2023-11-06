@@ -24,7 +24,7 @@ class Parser {
     let rest = '';
     for await (const chunk of this.chuncks()) {
       const text = rest + decoder.decode(chunk);
-      const lines = text.split('\n');
+      const lines = text.split(/\r?\n/);
       rest = lines.pop();
 
       for (const line of lines) yield line;
